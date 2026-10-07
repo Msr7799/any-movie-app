@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "283041672099",
+    "firebase_url": "https://any-movie-app-default-rtdb.firebaseio.com",
+    "project_id": "any-movie-app",
+    "storage_bucket": "any-movie-app.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:283041672099:android:69b72bea4114ed9f564816",
+        "android_client_info": {
+          "package_name": "com.forgepulse.anymovie"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "283041672099-s5410rclvseelger2e58s15mkftbm08i.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.forgepulse.anymovie",
+            "certificate_hash": "1b2c6845f3647c5c4e9ff5b22ddaeff39f32c42a"
+          }
+        },
+        {
+          "client_id": "283041672099-aumgm6pr9miu176ekrfecj8sa5g784lj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBWXqPLz2p_zruYTACcPD8NYr2LoJ5j9vw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "283041672099-aumgm6pr9miu176ekrfecj8sa5g784lj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

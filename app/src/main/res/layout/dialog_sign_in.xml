@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_auth_sheet"
+    android:orientation="vertical"
+    android:paddingStart="24dp"
+    android:paddingTop="14dp"
+    android:paddingEnd="24dp"
+    android:paddingBottom="28dp">
+
+    <ImageButton
+        android:id="@+id/authCloseButton"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        android:layout_gravity="end"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/close"
+        android:padding="10dp"
+        android:src="@drawable/ic_close"
+        app:tint="@color/matte_on_surface" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="@string/sign_in_title"
+        android:textColor="@color/matte_on_surface"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="18dp"
+        android:gravity="center"
+        android:text="@string/sign_in_subtitle"
+        android:textColor="@color/matte_on_surface_variant"
+        android:textSize="14sp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/authGoogleButton"
+        style="@style/Widget.Material3.Button.OutlinedButton"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginTop="30dp"
+        android:text="@string/continue_with_google"
+        android:textAllCaps="false"
+        android:textColor="@color/matte_on_surface"
+        android:textSize="16sp"
+        app:backgroundTint="@color/matte_surface_variant"
+        app:cornerRadius="16dp"
+        app:strokeColor="@color/matte_outline"
+        app:strokeWidth="1dp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/authEmailButton"
+        style="@style/Widget.Material3.Button.OutlinedButton"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginTop="12dp"
+        android:text="@string/continue_with_email"
+        android:textAllCaps="false"
+        android:textColor="@color/matte_on_surface"
+        android:textSize="16sp"
+        app:backgroundTint="@color/matte_surface_variant"
+        app:cornerRadius="16dp"
+        app:icon="@drawable/ic_email"
+        app:iconGravity="textStart"
+        app:iconPadding="12dp"
+        app:iconTint="@color/matte_on_surface"
+        app:strokeColor="@color/matte_outline"
+        app:strokeWidth="1dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:gravity="center"
+        android:text="@string/sign_in_optional_hint"
+        android:textColor="@color/matte_on_surface_variant"
+        android:textSize="13sp" />
+
+</LinearLayout>

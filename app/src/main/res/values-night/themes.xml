@@ -1,0 +1,29 @@
+<resources>
+    <style name="Base.Theme.AnyMovie" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/matte_primary</item>
+        <item name="colorOnPrimary">@color/matte_on_primary</item>
+        <item name="colorPrimaryContainer">@color/matte_primary_container</item>
+        <item name="colorSecondary">@color/matte_secondary</item>
+        <item name="colorSecondaryContainer">@color/matte_secondary_container</item>
+        <item name="colorTertiary">@color/matte_tertiary</item>
+        <item name="colorSurface">@color/matte_surface</item>
+        <item name="colorSurfaceVariant">@color/matte_surface_variant</item>
+        <item name="colorOnSurface">@color/matte_on_surface</item>
+        <item name="colorOnSurfaceVariant">@color/matte_on_surface_variant</item>
+        <item name="colorOutline">@color/matte_outline</item>
+        <item name="colorError">@color/matte_error</item>
+        <item name="android:colorAccent">@color/matte_primary</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowLightNavigationBar">false</item>
+        <item name="android:statusBarColor">@color/matte_background</item>
+        <item name="android:navigationBarColor">@color/matte_background</item>
+        <item name="android:fontFamily">sans</item>
+        <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.AnyMovie.Small</item>
+        <item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.AnyMovie.Medium</item>
+        <item name="shapeAppearanceLargeComponent">@style/ShapeAppearance.AnyMovie.Large</item>
+    </style>
+    <style name="Theme.AnyMovie" parent="Base.Theme.AnyMovie" />
+    <style name="ShapeAppearance.AnyMovie.Small" parent="ShapeAppearance.Material3.Corner.Small"><item name="cornerSize">14dp</item></style>
+    <style name="ShapeAppearance.AnyMovie.Medium" parent="ShapeAppearance.Material3.Corner.Medium"><item name="cornerSize">20dp</item></style>
+    <style name="ShapeAppearance.AnyMovie.Large" parent="ShapeAppearance.Material3.Corner.Large"><item name="cornerSize">28dp</item></style>
+</resources>

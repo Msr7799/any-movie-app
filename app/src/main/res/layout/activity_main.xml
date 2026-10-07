@@ -1,0 +1,158 @@
+<?xml version='1.0' encoding='utf-8'?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent" android:layout_height="match_parent" tools:context=".MainActivity">
+
+    <androidx.drawerlayout.widget.DrawerLayout android:id="@+id/drawerLayout" android:layout_width="match_parent" android:layout_height="match_parent" android:fitsSystemWindows="true">
+
+    <LinearLayout android:id="@+id/main" android:layout_width="match_parent" android:layout_height="match_parent" android:background="@color/matte_background" android:orientation="vertical">
+
+        <com.google.android.material.appbar.MaterialToolbar android:id="@+id/toolbar" android:layout_width="match_parent" android:layout_height="64dp" android:background="@color/matte_surface" android:elevation="1dp" android:navigationContentDescription="@string/menu" android:navigationIcon="@drawable/ic_menu" android:title="@string/app_name" app:menu="@menu/main_menu" app:titleTextAppearance="@style/TextAppearance.Material3.TitleMedium"/>
+
+        <com.google.android.material.card.MaterialCardView android:id="@+id/quickAccessCard" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginStart="@dimen/page_margin" android:layout_marginTop="10dp" android:layout_marginEnd="@dimen/page_margin" app:cardBackgroundColor="@color/matte_surface" app:cardCornerRadius="20dp" app:cardElevation="0dp" app:strokeColor="@color/matte_outline" app:strokeWidth="1dp">
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:padding="6dp">
+
+                <com.google.android.material.button.MaterialButton android:id="@+id/quickHistoryButton" style="@style/Widget.Material3.Button.TextButton" android:layout_width="0dp" android:layout_height="48dp" android:layout_weight="1" android:text="@string/history_short" android:textAllCaps="false" app:icon="@drawable/ic_history" app:iconGravity="textStart" app:iconTint="@color/matte_primary"/>
+
+                <com.google.android.material.button.MaterialButton android:id="@+id/quickAccountButton" style="@style/Widget.Material3.Button.TonalButton" android:layout_width="0dp" android:layout_height="48dp" android:layout_weight="1" android:text="@string/account_short" android:textAllCaps="false" app:cornerRadius="15dp" app:icon="@drawable/ic_account" app:iconGravity="textStart"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <androidx.core.widget.NestedScrollView android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:clipToPadding="false" android:fillViewport="true" android:id="@+id/mainScroll">
+
+            <LinearLayout android:id="@+id/content" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:orientation="vertical" android:paddingStart="@dimen/page_margin" android:paddingTop="18dp" android:paddingEnd="@dimen/page_margin" android:paddingBottom="44dp">
+
+                <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="26dp" android:text="@string/now_playing" android:textColor="@color/matte_secondary" android:textSize="13sp" android:textStyle="bold"/>
+
+                <TextView android:id="@+id/nowPlayingTitle" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:ellipsize="end" android:maxLines="2" android:text="@string/nothing_playing" android:textColor="@color/matte_on_surface" android:textSize="23sp" android:textStyle="bold"/>
+
+                <com.google.android.material.card.MaterialCardView android:id="@+id/playerCard" android:layout_width="match_parent" android:layout_height="@dimen/player_height" android:layout_marginTop="12dp" app:cardBackgroundColor="@color/player_black" app:cardCornerRadius="22dp" app:cardElevation="8dp">
+                    <FrameLayout android:id="@+id/playerFrame" android:layout_width="match_parent" android:layout_height="match_parent">
+                        <androidx.media3.ui.PlayerView android:id="@+id/playerView" android:layout_width="match_parent" android:layout_height="match_parent" app:show_buffering="when_playing" app:surface_type="texture_view" app:use_controller="true"/>
+                        <WebView android:id="@+id/embedView" android:layout_width="match_parent" android:layout_height="match_parent" android:background="@color/player_black" android:visibility="gone"/>
+                        <View android:id="@+id/vignetteOverlay" android:layout_width="match_parent" android:layout_height="match_parent" android:clickable="false" android:importantForAccessibility="no" android:visibility="gone"/>
+                        <TextView android:id="@+id/playerInfoBadge" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="top|start" android:layout_margin="12dp" android:background="@drawable/bg_player_badge" android:maxLines="1" android:paddingStart="10dp" android:paddingTop="6dp" android:paddingEnd="10dp" android:paddingBottom="6dp" android:textColor="@android:color/white" android:textSize="11sp" android:textStyle="bold" android:visibility="gone"/>
+                        <com.google.android.material.button.MaterialButton android:id="@+id/playerFullscreenButton" style="@style/Widget.Material3.Button.TonalButton" android:layout_width="48dp" android:layout_height="48dp" android:layout_gravity="top|end" android:layout_margin="10dp" android:contentDescription="@string/fullscreen" app:backgroundTint="@color/player_control_scrim" app:icon="@drawable/ic_fullscreen" app:iconTint="@android:color/white"/>
+                    </FrameLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView android:id="@+id/searchCard" android:layout_width="match_parent" android:layout_height="wrap_content" app:cardCornerRadius="28dp" app:cardElevation="0dp" app:strokeColor="@color/matte_outline" app:strokeWidth="1dp">
+
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@drawable/bg_search_gradient" android:orientation="vertical" android:padding="18dp">
+
+                        <TextView android:id="@+id/discoverTitle" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/discover_title" android:textColor="@color/matte_on_surface" android:textSize="21sp" android:textStyle="bold" android:visibility="gone"/>
+
+                        <TextView android:id="@+id/discoverSubtitle" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:layout_marginBottom="14dp" android:text="@string/discover_subtitle" android:textColor="@color/matte_on_surface_variant" android:textSize="13sp" android:visibility="gone"/>
+
+                        <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="@string/search_hint" app:boxBackgroundColor="@color/matte_surface" app:boxBackgroundMode="filled" app:boxCornerRadiusBottomEnd="18dp" app:boxCornerRadiusBottomStart="18dp" app:boxCornerRadiusTopEnd="18dp" app:boxCornerRadiusTopStart="18dp" app:boxStrokeWidth="0dp" app:boxStrokeWidthFocused="1dp" app:startIconDrawable="@drawable/ic_search">
+                            <AutoCompleteTextView android:id="@+id/searchInput" android:layout_width="match_parent" android:layout_height="60dp" android:imeOptions="actionSearch" android:inputType="text" android:maxLines="1" android:paddingEnd="14dp" android:popupBackground="@drawable/bg_dropdown_popup" android:textColor="@color/matte_on_surface" android:textSize="16sp"/>
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.button.MaterialButton android:id="@+id/filterToggleButton" style="@style/Widget.Material3.Button.OutlinedButton" android:layout_width="match_parent" android:layout_height="50dp" android:layout_marginTop="10dp" android:text="@string/show_filters" android:textColor="@color/matte_tertiary" app:cornerRadius="16dp" app:icon="@drawable/ic_filter" app:iconGravity="textStart" app:iconTint="@color/matte_tertiary" app:strokeColor="@color/matte_outline"/>
+
+                        <LinearLayout android:id="@+id/filterPanel" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:visibility="gone">
+
+                            <com.google.android.material.textfield.TextInputLayout style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10dp" android:hint="@string/search_provider" app:boxBackgroundColor="@color/matte_surface" app:boxStrokeColor="@color/matte_tertiary">
+                                <AutoCompleteTextView android:id="@+id/searchProvider" android:layout_width="match_parent" android:layout_height="56dp" android:inputType="none" android:popupBackground="@drawable/bg_dropdown_popup" android:textColor="@color/matte_on_surface"/>
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                            <com.google.android.material.textfield.TextInputLayout style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:hint="@string/movie_language" app:boxBackgroundColor="@color/matte_surface" app:boxStrokeColor="@color/matte_tertiary">
+                                <AutoCompleteTextView android:id="@+id/movieLanguage" android:layout_width="match_parent" android:layout_height="56dp" android:inputType="none" android:popupBackground="@drawable/bg_dropdown_popup" android:textColor="@color/matte_on_surface"/>
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                            <com.google.android.material.textfield.TextInputLayout style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:hint="@string/subtitle_language" app:boxBackgroundColor="@color/matte_surface" app:boxStrokeColor="@color/matte_tertiary">
+                                <AutoCompleteTextView android:id="@+id/subtitleLanguage" android:layout_width="match_parent" android:layout_height="56dp" android:inputType="none" android:popupBackground="@drawable/bg_dropdown_popup" android:textColor="@color/matte_on_surface"/>
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                            <com.google.android.material.textfield.TextInputLayout style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:hint="@string/result_count" app:boxBackgroundColor="@color/matte_surface" app:boxStrokeColor="@color/matte_tertiary">
+                                <AutoCompleteTextView android:id="@+id/resultLimit" android:layout_width="match_parent" android:layout_height="56dp" android:inputType="none" android:popupBackground="@drawable/bg_dropdown_popup" android:textColor="@color/matte_on_surface"/>
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                            <com.google.android.material.materialswitch.MaterialSwitch android:id="@+id/allowClips" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:text="@string/allow_clips"/>
+                        </LinearLayout>
+
+                        <com.google.android.material.button.MaterialButton android:id="@+id/searchButton" android:layout_width="match_parent" android:layout_height="56dp" android:layout_marginTop="10dp" android:text="@string/search" android:textColor="@color/matte_on_action" app:backgroundTint="@color/matte_action" app:cornerRadius="18dp" app:icon="@drawable/ic_search" app:iconGravity="textStart" app:iconTint="@color/matte_on_action"/>
+
+                        <com.google.android.material.progressindicator.LinearProgressIndicator android:id="@+id/searchProgress" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:indeterminate="true" android:visibility="gone"/>
+
+                        <TextView android:id="@+id/searchStatus" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:textColor="@color/matte_on_surface_variant" android:textSize="13sp" android:visibility="gone"/>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView android:id="@+id/resultsSection" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="14dp" android:visibility="gone" app:cardBackgroundColor="@color/matte_surface" app:cardCornerRadius="26dp" app:strokeColor="@color/matte_outline" app:strokeWidth="1dp">
+
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+
+                        <LinearLayout android:id="@+id/resultsHeader" android:layout_width="match_parent" android:layout_height="56dp" android:clickable="true" android:focusable="true" android:gravity="center_vertical" android:orientation="horizontal" android:paddingStart="16dp" android:paddingEnd="8dp">
+
+                            <TextView android:id="@+id/resultsTitle" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/playable_results" android:textColor="@color/matte_on_surface" android:textSize="17sp" android:textStyle="bold"/>
+
+                            <TextView android:id="@+id/resultsCount" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginEnd="4dp" android:background="@drawable/bg_player_badge" android:minWidth="28dp" android:gravity="center" android:paddingStart="8dp" android:paddingTop="4dp" android:paddingEnd="8dp" android:paddingBottom="4dp" android:textColor="@android:color/white" android:textSize="11sp"/>
+
+                            <com.google.android.material.button.MaterialButton android:id="@+id/resultsToggleButton" style="@style/Widget.Material3.Button.TextButton" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/collapse"/>
+                        </LinearLayout>
+
+                        <androidx.recyclerview.widget.RecyclerView android:id="@+id/resultsRecycler" android:layout_width="match_parent" android:layout_height="wrap_content" android:clipToPadding="false" android:nestedScrollingEnabled="false" android:paddingStart="10dp" android:paddingEnd="10dp" android:paddingBottom="10dp" tools:listitem="@layout/item_search_result"/>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="18dp" android:layout_marginBottom="8dp" android:text="@string/player_tools" android:textColor="@color/matte_on_surface" android:textSize="16sp" android:textStyle="bold"/>
+
+                <GridLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:columnCount="2" android:useDefaultMargins="true">
+                    <com.google.android.material.button.MaterialButton android:id="@+id/openFileButton" style="@style/Widget.Material3.Button.TonalButton" android:layout_width="0dp" android:layout_height="52dp" android:layout_columnWeight="1" android:text="@string/open_file" app:cornerRadius="16dp"/>
+                    <com.google.android.material.button.MaterialButton android:id="@+id/openUrlButton" style="@style/Widget.Material3.Button.TonalButton" android:layout_width="0dp" android:layout_height="52dp" android:layout_columnWeight="1" android:text="@string/open_url" app:cornerRadius="16dp"/>
+                    <com.google.android.material.button.MaterialButton android:id="@+id/addSubtitleButton" style="@style/Widget.Material3.Button.TonalButton" android:layout_width="0dp" android:layout_height="52dp" android:layout_columnWeight="1" android:text="@string/add_subtitle" app:cornerRadius="16dp"/>
+                    <com.google.android.material.button.MaterialButton android:id="@+id/subtitleStyleButton" style="@style/Widget.Material3.Button.TonalButton" android:layout_width="0dp" android:layout_height="52dp" android:layout_columnWeight="1" android:text="@string/subtitle_style" app:cornerRadius="16dp"/>
+                    <com.google.android.material.button.MaterialButton android:id="@+id/adjustButton" style="@style/Widget.Material3.Button.TonalButton" android:layout_width="0dp" android:layout_height="52dp" android:layout_columnWeight="1" android:text="@string/adjustments" app:cornerRadius="16dp"/>
+                    <com.google.android.material.button.MaterialButton android:id="@+id/orientationButton" style="@style/Widget.Material3.Button.TonalButton" android:layout_width="0dp" android:layout_height="52dp" android:layout_columnWeight="1" android:text="@string/rotate_screen" app:cornerRadius="16dp"/>
+                    <com.google.android.material.button.MaterialButton android:id="@+id/castButton" style="@style/Widget.Material3.Button.TonalButton" android:layout_width="0dp" android:layout_height="52dp" android:layout_columnWeight="1" android:text="@string/cast_screen" app:cornerRadius="16dp"/>
+                    <com.google.android.material.button.MaterialButton android:id="@+id/fullscreenButton" style="@style/Widget.Material3.Button.TonalButton" android:layout_width="0dp" android:layout_height="52dp" android:layout_columnWeight="1" android:text="@string/fullscreen" app:cornerRadius="16dp"/>
+                </GridLayout>
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="20dp" android:orientation="vertical">
+                    <include layout="@layout/item_feature" android:id="@+id/featurePicture"/>
+                    <include layout="@layout/item_feature" android:id="@+id/featureSubtitle"/>
+                    <include layout="@layout/item_feature" android:id="@+id/featureBackground"/>
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
+
+    <LinearLayout android:layout_width="@dimen/drawer_width" android:layout_height="match_parent" android:layout_gravity="start" android:background="@color/matte_surface" android:fitsSystemWindows="true" android:orientation="vertical" android:padding="20dp">
+
+        <com.google.android.material.card.MaterialCardView android:id="@+id/accountCard" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="14dp" android:layout_marginBottom="8dp" app:cardBackgroundColor="@color/matte_primary_container" app:cardCornerRadius="24dp" app:cardElevation="0dp" app:strokeColor="@color/matte_outline" app:strokeWidth="1dp">
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="16dp">
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_vertical" android:orientation="horizontal">
+
+                    <TextView android:id="@+id/accountAvatar" android:layout_width="48dp" android:layout_height="48dp" android:background="@drawable/bg_account_avatar" android:gravity="center" android:text="G" android:textColor="@color/matte_primary" android:textSize="18sp" android:textStyle="bold"/>
+
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginStart="12dp" android:layout_weight="1" android:orientation="vertical">
+
+                        <TextView android:id="@+id/accountName" android:layout_width="match_parent" android:layout_height="wrap_content" android:maxLines="1" android:text="@string/guest_account" android:textColor="@color/matte_on_surface" android:textSize="16sp" android:textStyle="bold"/>
+
+                        <TextView android:id="@+id/accountStatus" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="2dp" android:maxLines="2" android:text="@string/firebase_connecting" android:textColor="@color/matte_on_surface_variant" android:textSize="12sp"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <com.google.android.material.button.MaterialButton android:id="@+id/accountSignInButton" android:layout_width="match_parent" android:layout_height="48dp" android:layout_marginTop="14dp" android:text="@string/sign_in" android:textAllCaps="false" app:cornerRadius="16dp"/>
+
+                <com.google.android.material.button.MaterialButton android:id="@+id/accountSignOutButton" style="@style/Widget.Material3.Button.TextButton" android:layout_width="match_parent" android:layout_height="44dp" android:text="@string/sign_out" android:textAllCaps="false" android:visibility="gone"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingTop="18dp" android:paddingBottom="8dp" android:text="@string/search_history" android:textColor="@color/matte_on_surface" android:textSize="20sp" android:textStyle="bold"/>
+        <TextView android:id="@+id/emptySearchHistory" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/empty_search_history" android:textColor="@color/matte_on_surface_variant"/>
+        <androidx.recyclerview.widget.RecyclerView android:id="@+id/searchHistoryRecycler" android:layout_width="match_parent" android:layout_height="180dp" android:layout_marginTop="8dp" android:nestedScrollingEnabled="true"/>
+
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingTop="14dp" android:paddingBottom="8dp" android:text="@string/playback_history" android:textColor="@color/matte_on_surface" android:textSize="20sp" android:textStyle="bold"/>
+        <com.google.android.material.textfield.TextInputLayout style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8dp" android:hint="@string/category_filter" app:boxBackgroundColor="@color/matte_surface" app:boxStrokeColor="@color/matte_outline">
+            <AutoCompleteTextView android:id="@+id/libraryCategoryFilter" android:layout_width="match_parent" android:layout_height="52dp" android:inputType="none" android:popupBackground="@drawable/bg_dropdown_popup" android:textColor="@color/matte_on_surface"/>
+        </com.google.android.material.textfield.TextInputLayout>
+        <TextView android:id="@+id/emptyLibrary" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/empty_library" android:textColor="@color/matte_on_surface_variant"/>
+        <androidx.recyclerview.widget.RecyclerView android:id="@+id/libraryRecycler" android:layout_width="match_parent" android:layout_height="0dp" android:layout_marginTop="8dp" android:layout_weight="1"/>
+    </LinearLayout>
+    </androidx.drawerlayout.widget.DrawerLayout>
+
+    <FrameLayout android:id="@+id/fullscreenContainer" android:layout_width="match_parent" android:layout_height="match_parent" android:background="@color/player_black" android:elevation="32dp" android:visibility="gone"/>
+</FrameLayout>

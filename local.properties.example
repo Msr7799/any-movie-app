@@ -1,0 +1,4 @@
+# Android Studio normally generates local.properties automatically.
+# Example only; replace with your local SDK path if needed.
+# sdk.dir=/Users/you/Library/Android/sdk
+# sdk.dir=C:\\Users\\you\\AppData\\Local\\Android\\Sdk

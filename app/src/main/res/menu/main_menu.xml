@@ -1,0 +1,8 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/action_language" android:title="@string/language_toggle" app:showAsAction="always" />
+    <item android:id="@+id/action_theme" android:icon="@drawable/ic_theme" android:title="@string/theme_toggle" app:showAsAction="always" />
+    <item android:id="@+id/action_cast" android:icon="@drawable/ic_cast" android:title="@string/cast_screen" app:showAsAction="always" />
+    <item android:id="@+id/action_dashboard" android:icon="@drawable/ic_account" android:title="@string/my_dashboard" app:showAsAction="always" />
+    <item android:id="@+id/action_admin" android:icon="@drawable/ic_settings" android:title="@string/admin_dashboard" app:showAsAction="never" />
+    <item android:id="@+id/action_settings" android:icon="@drawable/ic_settings" android:title="@string/settings" app:showAsAction="always" />
+</menu>

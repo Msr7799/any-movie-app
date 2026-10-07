@@ -1,0 +1,36 @@
+<resources>
+    <!-- Production light palette: clean neutral surfaces with indigo + sky accents. -->
+    <color name="matte_background">#F6F8FC</color>
+    <color name="matte_surface">#FFFFFF</color>
+    <color name="matte_surface_variant">#EEF2F7</color>
+    <color name="matte_popup">#FFFFFF</color>
+    <color name="matte_primary">#1F4168</color>
+    <color name="matte_primary_container">#E8F0F9</color>
+    <color name="matte_on_primary">#FFFFFF</color>
+    <color name="matte_secondary">#BE3455</color>
+    <color name="matte_secondary_container">#FCE8EE</color>
+    <color name="matte_tertiary">#64748B</color>
+    <color name="matte_outline">#D7DEE8</color>
+    <color name="matte_on_surface">#101828</color>
+    <color name="matte_on_surface_variant">#667085</color>
+    <color name="matte_action">#1F4168</color>
+    <color name="matte_on_action">#FFFFFF</color>
+    <color name="matte_error">#D92D20</color>
+    <color name="matte_success">#067647</color>
+    <color name="matte_success_container">#ECFDF3</color>
+    <color name="player_black">#02040A</color>
+    <color name="transparent">#00000000</color>
+    <color name="player_control_scrim">#B21A1D29</color>
+
+    <color name="cinema_bg">#09090B</color>
+    <color name="cinema_surface">#111D2E</color>
+    <color name="cinema_surface_alt">#1B3049</color>
+    <color name="cinema_outline">#596F96C2</color>
+    <color name="cinema_primary">#6F96C2</color>
+    <color name="cinema_primary_soft">#1B3049</color>
+    <color name="cinema_accent">#FF8A1F</color>
+    <color name="cinema_text">#FAFAFA</color>
+    <color name="cinema_muted">#A1A1AA</color>
+    <color name="cinema_success">#34D399</color>
+    <color name="cinema_danger">#FB7185</color>
+</resources>

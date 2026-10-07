@@ -1,0 +1,25 @@
+{
+  "rules": {
+    "publicCatalog": {
+      ".read": false,
+      ".write": false
+    },
+    "users": {
+      "$uid": {
+        ".read": "auth != null && auth.uid === $uid",
+        ".write": "auth != null && auth.uid === $uid",
+        "profile": {
+          ".validate": "newData.hasChildren(['anonymous', 'lastSeenAt', 'appVersion'])"
+        },
+        "state": {
+          ".validate": "newData.hasChildren(['resultsCollapsed', 'updatedAt'])"
+        },
+        "library": {
+          "$catalogId": {
+            ".validate": "!newData.exists() || (newData.hasChildren(['catalogId','title','mediaType','watchlist','favorite','rating','progressMs','durationMs','watched','addedAt','lastWatchedAt']) && newData.child('catalogId').val() === $catalogId && newData.child('title').isString() && newData.child('title').val().length <= 220 && (newData.child('mediaType').val() === 'movie' || newData.child('mediaType').val() === 'tv') && newData.child('watchlist').isBoolean() && newData.child('favorite').isBoolean() && newData.child('rating').isNumber() && newData.child('rating').val() >= 0 && newData.child('rating').val() <= 10 && newData.child('progressMs').isNumber() && newData.child('progressMs').val() >= 0 && newData.child('durationMs').isNumber() && newData.child('durationMs').val() >= 0 && newData.child('watched').isBoolean() && newData.child('addedAt').isNumber() && newData.child('lastWatchedAt').isNumber())"
+          }
+        }
+      }
+    }
+  }
+}
