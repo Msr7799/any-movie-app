@@ -134,7 +134,8 @@ class MainActivity : AppCompatActivity() {
     private var webAutoDetectGeneration = 0
     private lateinit var fullscreenBackCallback: OnBackPressedCallback
     private var accountState = FirebaseCoordinator.AccountState(configured = false)
-    private var serverCatalog: List<LibraryItem> by lazy { store.loadCatalog() }
+    // Mutable because a fresh catalog replaces the offline snapshot after API sync.
+    private var serverCatalog: List<LibraryItem> = emptyList()
     private lateinit var cinemaCenter: CinemaCenterPanel
     private val movieEnrichment by lazy { MovieEnrichmentCache(this) }
     private val enrichmentAttempts = mutableSetOf<String>()
@@ -196,6 +197,8 @@ class MainActivity : AppCompatActivity() {
         WindowCompat.setDecorFitsSystemWindows(window, true)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        // Restore the cached catalog before initializing movie lists and shelves.
+        serverCatalog = store.loadCatalog()
         binding.drawerLayout.setDrawerElevation(20f * resources.displayMetrics.density)
         binding.drawerLayout.setScrimColor(Color.argb(179, 0, 0, 0))
         window.enterTransition = android.transition.Fade().apply { duration = 260 }
